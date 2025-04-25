@@ -1,0 +1,61 @@
+[
+  {
+    "timestamp": "2025-04-25T05:41:06.972Z",
+    "candidate": {
+      "name": "Dr.Jane Doe",
+      "nacExam": 65,
+      "mccqe1": 340,
+      "practiceGapMonths": 36,
+      "canadianExperience": "No"
+    },
+    "flags": [
+      {
+        "code": "NAC_FAIL",
+        "msg": "NAC exam score below 70",
+        "overridden": false
+      },
+      {
+        "code": "MCC_FAIL",
+        "msg": "MCCQE1 score below 350",
+        "overridden": false
+      },
+      {
+        "code": "GAP_TOO_LONG",
+        "msg": "Practice gap exceeds 24 months",
+        "overridden": false
+      },
+      {
+        "code": "NO_CA_EXP",
+        "msg": "Canadian experience is missing or not sufficient",
+        "overridden": false
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-04-25T17:52:45.218Z",
+    "candidate": {
+      "mccqe1": 55,
+      "practiceGapMonths": 2,
+      "canadianExperience": "no",
+      "name": "mmmm",
+      "nacExam": 4
+    },
+    "flags": [
+      {
+        "code": "NAC_FAIL",
+        "msg": "NAC exam score below 70",
+        "overridden": true
+      },
+      {
+        "code": "MCC_FAIL",
+        "msg": "MCCQE1 score below 350",
+        "overridden": true
+      },
+      {
+        "code": "NO_CA_EXP",
+        "msg": "Canadian experience is missing or not sufficient",
+        "overridden": true
+      }
+    ]
+  }
+]

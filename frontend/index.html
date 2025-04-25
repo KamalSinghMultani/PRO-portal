@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="flaggingApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Candidate Evaluation</title>
+  <link rel="stylesheet" href="https://unpkg.com/primeng/resources/themes/saga-blue/theme.css">
+  <link rel="stylesheet" href="https://unpkg.com/primeng/resources/primeng.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/primeicons/primeicons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+    .form-section { margin: 20px; }
+    .flag-table { margin-top: 30px; }
+    .badge { font-size: 13px; }
+  </style>
+</head>
+<body ng-controller="FlagController">
+  <div class="container form-section">
+    <h2>Candidate Evaluation</h2>
+    <form ng-submit="evaluate()">
+      <div class="form-group"><label>Name:</label><input type="text" class="form-control" ng-model="candidate.name" required /></div>
+      <div class="form-group"><label>NAC Exam Score:</label><input type="number" class="form-control" ng-model="candidate.nacExam" /></div>
+      <div class="form-group"><label>MCCQE1 Score:</label><input type="number" class="form-control" ng-model="candidate.mccqe1" /></div>
+      <div class="form-group"><label>Practice Gap (months):</label><input type="number" class="form-control" ng-model="candidate.practiceGapMonths" /></div>
+      <div class="form-group">
+        <label>Canadian Experience:</label>
+        <select class="form-control" ng-model="candidate.canadianExperience">
+          <option value="">-- Select --</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Evaluate</button>
+    </form>
+
+    <div class="flag-table" ng-if="evaluated">
+      <h3>Flags</h3>
+      <table class="table table-bordered">
+        <thead><tr><th>Code</th><th>Message</th><th>Override</th></tr></thead>
+        <tbody>
+          <tr ng-if="flags.length === 0">
+            <td colspan="3"><span class="label label-success">✅ No flags triggered</span></td>
+          </tr>
+          <tr ng-repeat="flag in flags">
+            <td><span class="label label-warning">{{ flag.code }}</span></td>
+            <td>{{ flag.msg }}</td>
+            <td><input type="checkbox" ng-model="flag.overridden" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" ng-click="save()">Save Evaluation</button>
+    </div>
+  </div>
+</body>
+</html>

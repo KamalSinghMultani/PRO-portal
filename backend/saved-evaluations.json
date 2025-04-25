@@ -1,0 +1,39 @@
+[
+  {
+    "timestamp": "2025-04-25T21:03:54.824Z",
+    "candidate": {
+      "name": "kamal"
+    },
+    "flags": [
+      {
+        "code": "NAC_FAIL",
+        "msg": "NAC exam missing"
+      },
+      {
+        "code": "MCC_FAIL",
+        "msg": "MCCQE1 missing"
+      },
+      {
+        "code": "NO_CA_EXP",
+        "msg": "Canadian experience missing or insufficient"
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-04-25T21:04:28.861Z",
+    "candidate": {
+      "name": "kamal",
+      "nacExam": 450,
+      "mccqe1": 450,
+      "practiceGapMonths": 450,
+      "canadianExperience": "Yes"
+    },
+    "flags": [
+      {
+        "code": "GAP_TOO_LONG",
+        "msg": "Practice gap exceeds 24 months",
+        "overridden": true
+      }
+    ]
+  }
+]
